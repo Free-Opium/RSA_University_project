@@ -36,7 +36,7 @@ namespace RSA_University_project_Vysochina
             this.label2 = new System.Windows.Forms.Label();
             this.btn_SaveManualRandSeed = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.tb_CurrentRandomValue = new System.Windows.Forms.TextBox();
+            this.tb_passive_CurrentRandomValue = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_passive_CurrentRandseed = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@ namespace RSA_University_project_Vysochina
             this.btn_GenerateRandSeed.TabIndex = 0;
             this.btn_GenerateRandSeed.Text = "Автоматически сгенерировать зерно рандома";
             this.btn_GenerateRandSeed.UseVisualStyleBackColor = true;
+            this.btn_GenerateRandSeed.Click += new System.EventHandler(this.btn_GenerateRandSeed_Click);
             // 
             // tb_ManualRandSeed
             // 
@@ -98,6 +99,7 @@ namespace RSA_University_project_Vysochina
             this.btn_SaveManualRandSeed.TabIndex = 5;
             this.btn_SaveManualRandSeed.Text = "Сохранить";
             this.btn_SaveManualRandSeed.UseVisualStyleBackColor = true;
+            this.btn_SaveManualRandSeed.Click += new System.EventHandler(this.btn_SaveManualRandSeed_Click);
             // 
             // label3
             // 
@@ -111,13 +113,13 @@ namespace RSA_University_project_Vysochina
             this.label3.TabIndex = 6;
             this.label3.Text = "Сгенерированное псевдослучайное число";
             // 
-            // tb_CurrentRandomValue
+            // tb_passive_CurrentRandomValue
             // 
-            this.tb_CurrentRandomValue.Enabled = false;
-            this.tb_CurrentRandomValue.Location = new System.Drawing.Point(9, 365);
-            this.tb_CurrentRandomValue.Name = "tb_CurrentRandomValue";
-            this.tb_CurrentRandomValue.Size = new System.Drawing.Size(497, 22);
-            this.tb_CurrentRandomValue.TabIndex = 7;
+            this.tb_passive_CurrentRandomValue.Enabled = false;
+            this.tb_passive_CurrentRandomValue.Location = new System.Drawing.Point(9, 365);
+            this.tb_passive_CurrentRandomValue.Name = "tb_passive_CurrentRandomValue";
+            this.tb_passive_CurrentRandomValue.Size = new System.Drawing.Size(497, 22);
+            this.tb_passive_CurrentRandomValue.TabIndex = 7;
             // 
             // label4
             // 
@@ -185,6 +187,7 @@ namespace RSA_University_project_Vysochina
             this.btn_SaveRange.TabIndex = 15;
             this.btn_SaveRange.Text = "Сохранить";
             this.btn_SaveRange.UseVisualStyleBackColor = true;
+            this.btn_SaveRange.Click += new System.EventHandler(this.btn_SaveRange_Click);
             // 
             // btn_GenerateNextNumber
             // 
@@ -194,6 +197,7 @@ namespace RSA_University_project_Vysochina
             this.btn_GenerateNextNumber.TabIndex = 16;
             this.btn_GenerateNextNumber.Text = "Сгенерировать следующее число последовательности";
             this.btn_GenerateNextNumber.UseVisualStyleBackColor = true;
+            this.btn_GenerateNextNumber.Click += new System.EventHandler(this.btn_GenerateNextNumber_Click);
             // 
             // Test_tool_rand
             // 
@@ -209,7 +213,7 @@ namespace RSA_University_project_Vysochina
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tb_passive_CurrentRandseed);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tb_CurrentRandomValue);
+            this.Controls.Add(this.tb_passive_CurrentRandomValue);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_SaveManualRandSeed);
             this.Controls.Add(this.label2);
@@ -236,7 +240,7 @@ namespace RSA_University_project_Vysochina
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_SaveManualRandSeed;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tb_CurrentRandomValue;
+        private System.Windows.Forms.TextBox tb_passive_CurrentRandomValue;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_passive_CurrentRandseed;
         private System.Windows.Forms.Label label5;
