@@ -22,14 +22,12 @@ namespace RSA_University_project_Vysochina
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            btn_GenerateNextNumber.Focus();
 
             RandomGenerator.currentSeedValue = RandomGenerator.GenerateSeedFromTimestamp();
-            RandomGenerator.rangeMin = RandomGenerator.rangeMinDefault;
-            RandomGenerator.rangeMax = RandomGenerator.rangeMaxDefault;
 
         }
 
+        //ГПСЧ
         private void btn_GenerateRandSeed_Click(object sender, EventArgs e)
         {
             var seed = RandomGenerator.GenerateSeedFromTimestamp();
@@ -66,15 +64,63 @@ namespace RSA_University_project_Vysochina
                 tb_passive_CurrentRandseed.Text = RandomGenerator.currentSeedValue.ToString();
             }
 
-            
-           RandomGenerator.GenerateNext(RandomGenerator.currentSeedValue, 
-                                         RandomGenerator.rangeMin,
-                                         RandomGenerator.rangeMax);
+
+
+            RandomGenerator.GenerateNext();
 
             tb_passive_CurrentRandseed.Text = RandomGenerator.currentSeedValue.ToString();
 
             tb_passive_CurrentRandomValue.Text = RandomGenerator.currentRandomValue.ToString();
 
+        }
+
+        //ГСД
+        private void btn_GetGCD_Click(object sender, EventArgs e)
+        {
+            tb_passive_GCDResult.Text = (GCD.Get(
+                                long.Parse(tb_GCD_A.Text), 
+                                long.Parse(tb_GCD_B.Text))).ToString();
+
+        }
+
+        //Расширенный Эвклид
+        private void btn_GetGCDEx_Click(object sender, EventArgs e)
+        {
+            int x;
+            int y;
+            int E = int.Parse(tb_GCDEx_E.Text);
+            int fi = int.Parse(tb_GCDEx_Fi.Text);
+            var div = GCD_Extended.Gcd(E, fi, out x, out y);
+
+
+            tb_passive_GCDEx_D.Text = x.ToString();
+            tb_passive_GCDEx_Y.Text = y.ToString();
+
+        }
+
+        //Модульное возведение в степень
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tb_passive_MPResult.Text = (ModPow.Get(int.Parse(tb_MP_X.Text), int.Parse(tb_MP_Y.Text), int.Parse(tb_MP_N.Text))).ToString();
+        }
+
+        //Малая теорема Ферма
+        private void btn_PrimeCheck_Click(object sender, EventArgs e)
+        {
+            tb_passive_FermaPrimeCheckResult.Text = Ferma.Check(long.Parse(tb_FermaInputNumber.Text)) ? "Число на 99,9999% простое" : "Число не является простым";
+
+        }
+
+        private void btn_GenerateForPrimeTest_Click(object sender, EventArgs e)
+        {
+            var num =
+            RandomGenerator.GenerateNext();
+            tb_FermaInputNumber.Text = num.ToString();
+        }
+
+        private void tb_FermaInputNumber_TextChanged(object sender, EventArgs e)
+        {
+            tb_passive_FermaPrimeCheckResult.Text = "";
         }
     }
 }
